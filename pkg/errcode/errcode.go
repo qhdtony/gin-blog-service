@@ -1,7 +1,7 @@
 package errcode
 import (
 	"fmt"
-	"http"
+	"net/http"
 )
 
 type Error struct {

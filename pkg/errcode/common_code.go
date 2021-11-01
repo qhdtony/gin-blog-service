@@ -1,5 +1,6 @@
+package errcode
 var {
-	Success							:= new NewError(100000, "成功")
+	Success							:= new NewError(0, "成功")
 	ServerError						:= new NewError(400001, "服务内部错误")
 	InvalidParams					:= new NewError(400002, "入参错误")
 	NotFound						:= new NewError(400002, "找不到")
