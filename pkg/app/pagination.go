@@ -1,6 +1,7 @@
 package app
 import (
 	"github.com/gin-blog-service/pkg/convert"
+	"github.com/gin-blog-service/global"
 	"github.com/gin-gonic/gin"
 )
 func GetPage(c *gin.Context) int {
@@ -22,7 +23,7 @@ func GetPageSize(c *gin.Context) int {
 	return pageSize
 }
 
-func GetPageOffset() int {
+func GetPageOffset(page, pageSize int) int {
 	result := 0
 	if page > 0 {
 		result = (page - 1) * pageSize

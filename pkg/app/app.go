@@ -1,6 +1,7 @@
 package app
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/gin-blog-service/pkg/errcode"
 	"net/http"
 )
 
@@ -42,5 +43,5 @@ func (r *Response) ToErrorResponse(err *errcode.Error) {
 	if len(details) > 0 {
 		response["detail"] = details
 	}
-	r.Ctx.Json(err.StatusCode, response)
+	r.Ctx.JSON(err.StatusCode(), response)
 }

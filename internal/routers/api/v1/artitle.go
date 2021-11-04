@@ -3,7 +3,7 @@ package v1
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/gin-blog-service/pkg/app"
-	//"github.com/gin-blog-service/pkg/errcode"
+	"github.com/gin-blog-service/pkg/errcode"
 )
 
 type Article struct {}
