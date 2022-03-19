@@ -7,6 +7,8 @@ require (
 	github.com/coreos/etcd v3.3.10+incompatible // indirect
 	github.com/coreos/go-etcd v2.0.0+incompatible // indirect
 	github.com/gin-gonic/gin v1.7.1
+	github.com/go-playground/universal-translator v0.18.0 // indirect
+	github.com/go-playground/validator/v10 v10.10.1 // indirect
 	github.com/jinzhu/gorm v1.9.16 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-sqlite3 v2.0.1+incompatible // indirect

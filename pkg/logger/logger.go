@@ -1,23 +1,24 @@
 package logger
 
 import (
-	"log"
 	"context"
-	"io"
-	"runtime"
-	"fmt"
-	"time"
 	"encoding/json"
+	"fmt"
+	"io"
+	"log"
+	"runtime"
+	"time"
 )
+
 type Level int8
 
 type Fields map[string]interface{}
 
 type Logger struct {
-	newLogger 	*log.Logger
-	ctx 		context.Context
-	fields		Fields
-	callers		[]string
+	newLogger *log.Logger
+	ctx       context.Context
+	fields    Fields
+	callers   []string
 }
 
 const (
@@ -31,18 +32,18 @@ const (
 
 func (l Level) String() string {
 	switch l {
-		case LevelDebug:
-			return "debug"
-		case LevelInfo:
-			return "info"
-		case LevelWarn:
-			return "warn"
-		case LevelError:
-			return "error"
-		case LevelFatal:
-			return "fatal"
-		case LevelPanic:
-			return "panic"
+	case LevelDebug:
+		return "debug"
+	case LevelInfo:
+		return "info"
+	case LevelWarn:
+		return "warn"
+	case LevelError:
+		return "error"
+	case LevelFatal:
+		return "fatal"
+	case LevelPanic:
+		return "panic"
 	}
 	return ""
 }
@@ -103,8 +104,8 @@ func (l *Logger) WithCallersFrames() *Logger {
 	return ll
 }
 
-func (l * Logger) JSONFormat(level Level, message string) map[string]interface{} {
-	data := make(Fields, len(l.fields) + 4)
+func (l *Logger) JSONFormat(level Level, message string) map[string]interface{} {
+	data := make(Fields, len(l.fields)+4)
 	data["level"] = level.String()
 	data["time"] = time.Now().Local().UnixNano()
 	data["message"] = message
@@ -151,5 +152,13 @@ func (l *Logger) Fatal(v ...interface{}) {
 }
 
 func (l *Logger) Fatalf(format string, v ...interface{}) {
+	l.Output(LevelInfo, fmt.Sprintf(format, v...))
+}
+
+func (l *Logger) Error(v ...interface{}) {
+	l.Output(LevelFatal, fmt.Sprint(v...))
+}
+
+func (l *Logger) Errorf(format string, v ...interface{}) {
 	l.Output(LevelInfo, fmt.Sprintf(format, v...))
 }

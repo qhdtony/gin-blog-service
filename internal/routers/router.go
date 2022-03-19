@@ -2,9 +2,10 @@ package routers
 
 import (
 	//"net/http"
-	"github.com/gin-gonic/gin"
 	v1 "github.com/gin-blog-service/internal/routers/api/v1"
+	"github.com/gin-gonic/gin"
 )
+
 func NewRouter() *gin.Engine {
 	r := gin.New()
 	r.Use(gin.Logger())
@@ -18,7 +19,8 @@ func NewRouter() *gin.Engine {
 		apiv1.DELETE("/tags/:id", tag.Delete)
 		apiv1.PUT("/tags/:id", tag.Update)
 		apiv1.PATCH("/tags/:id/state", tag.Update)
-		apiv1.GET("/tags", tag.Get)
+		apiv1.GET("/tags", tag.List)
+		apiv1.GET("/tags/:id", tag.Get)
 
 		apiv1.POST("/articles", article.Create)
 		apiv1.DELETE("/articles/:id", article.Delete)
