@@ -1,3 +1,0 @@
-2021/10/29 16:47:29 {"callers":["/Users/wulian/go/workspace/gin-blog-service/main.go: 20 main.init.0"],"level":"info","message":"xx: book blog-service","time":1635497249525974000}
-2021/11/04 15:29:19 {"callers":["/Users/wulian/go/workspace/gin-blog-service/main.go: 20 main.init.0"],"level":"info","message":"xx: book blog-service","time":1636010959179215000}
-2022/01/21 15:46:56 {"callers":["/Users/wulian/go/workspace/gin-blog-service/main.go: 20 main.init.0"],"level":"info","message":"xx: book blog-service","time":1642751216251437000}
